@@ -1,44 +1,30 @@
-let myMemberTable = document.createElement('table');
-let myTr = document.createElement('tr');
-let myTdFirstName = document.createElement('td');
-let myTdLastName = document.createElement('td');
-let myTdEmail = document.createElement('td');
-
-myTr.appendChild(myTdFirstName);
-myTr.appendChild(myTdLastName);
-myTr.appendChild(myTdEmail);
-
-myMemberTable.appendChild(myTr);
-document.body.appendChild(myMemberTable);
-
-
-let myButton = document.getElementById('myButton');
-myButton.addEventListener('click', function() {
-    let newRow = document.createElement('tr');
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('membership-form');
+    const tableBody = document.querySelector('#memberTable tbody');
+      
+    form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+      
+    const firstName = document.getElementById('first-name').value;
+    const lastName = document.getElementById('last-name').value;
+    const email = document.getElementById('email').value;
+      
+// Create new row
+    const newRow = document.createElement('tr');
+      
+// Insert data into cells
+    newRow.innerHTML = `
+        <td>${firstName}</td>
+        <td>${lastName}</td>
+        <td>${email}</td>
+        `;
+      
+// Append row to table
+    tableBody.appendChild(newRow);
+      
+// Clear form inputs after submission
+    form.reset();
+    });
     
-    let newTdFirstName = document.createElement('td');
-    let newTdLastName = document.createElement('td');
-    let newTdEmail = document.createElement('td');
-
-    let inputFirstName = document.createElement('input');
-    inputFirstName.type = 'text';
-    inputFirstName.placeholder = 'First Name';
-
-    let inputLastName = document.createElement('input');
-    inputLastName.type = 'text';
-    inputLastName.placeholder = 'Last Name';
-
-    let inputEmail = document.createElement('input');
-    inputEmail.type = 'email';
-    inputEmail.placeholder = 'Email';
-
-    newTdFirstName.appendChild(inputFirstName);
-    newTdLastName.appendChild(inputLastName);
-    newTdEmail.appendChild(inputEmail);
-
-    newRow.appendChild(newTdFirstName);
-    newRow.appendChild(newTdLastName);
-    newRow.appendChild(newTdEmail);
-
-    myMemberTable.appendChild(newRow);
 });
+      

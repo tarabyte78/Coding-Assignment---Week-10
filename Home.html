@@ -5,16 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <meta name="Description" content="Enter your description here"/>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
 <title>Week 10 - DOM</title>
 </head>
 
 <!--REFERENCING BOOTSTRAP AND JS/JQUERY-->
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
 
 </html>
 
@@ -22,16 +22,17 @@
 
 <body>
 
-<script src="./Week10.js"></script>
+<!--LINKING TO JAVASCRIPT AND CSS FILES-->
+  <script src="./Week10.js"></script>
 
+
+<!--Banner Image-->  
   <div class="row justify-content-center">
     <img width="1400" height="500" alt="Bee Pollinating a flower" src="https://ideas.ted.com/wp-content/uploads/sites/3/2021/03/FINAL_Bees.jpg?resize=1200,500">
   </div>
     
 
 <!--Conservation and Behavior-->
-
-
 
  <div class="row justify-content-center">
    <div class="col-sm-4 bg-white p-4 m-4">
@@ -45,6 +46,7 @@
 
  
 <!--Cards-->
+
    <div class="container text-center mb-5 fs-2">
    <div class="row">
      <div class="col-md-4">
@@ -95,9 +97,9 @@
    </div>
   
   
-  <!--To Bee or Not To Bee-->
- 
-  
+<!--Fun Bee Facts - Bootstrap Table-->
+<!-- REQUIREMENT: A Bootstrap styled table representing your choice of data.-->
+
   <div class="container">
      <table class="table">
         <tbody class="bg-light container-fluid">
@@ -128,26 +130,28 @@
   <br>
   <br>
 
-<!-- Contact Us Form -->
-<div class="container">
-  <div class="col-md-12">
-    <h2 class="text-center">BECOME A MEMBER</h2>
-    <form id="membership-form" class="row justify-content-center">
-      <div class="form-group col-md-4">
-        <input id="first-name" class="form-control" type="text" placeholder="First Name" required>
-      </div>
-      <div class="form-group col-md-4">
-        <input id="last-name" class="form-control" type="text" placeholder="Last Name" required>
-      </div>
-      <div class="form-group col-md-4">
-        <input id="email" class="form-control" type="email" placeholder="Email" required>
-      </div>
-      <div class="col-md-12 text-center">
-        <button type="submit" class="btn btn-secondary">Submit</button>
-      </div>
-    </form>
+<!-- Member Form - Bootstrap Form -->
+<!-- REQUIREMENT:  A Bootstrap styled form that allows a user to add a new row to the table when clicking on submit.-->
+
+  <div class="container">
+    <div class="col-md-12">
+      <h2 class="text-center">BECOME A MEMBER</h2>
+      <form id="membership-form" class="row justify-content-center">
+        <div class="form-group col-md-4">
+          <input id="first-name" class="form-control" type="text" placeholder="First Name" required>
+        </div>
+        <div class="form-group col-md-4">
+          <input id="last-name" class="form-control" type="text" placeholder="Last Name" required>
+        </div>
+        <div class="form-group col-md-4">
+          <input id="email" class="form-control" type="email" placeholder="Email" required>
+        </div>
+        <div class="col-md-12 text-center">
+          <button type="submit" id="submit" class="btn btn-secondary">Submit</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 
 <br>
 <br>
@@ -155,52 +159,55 @@
 <br>
 
 
-<!-- Membership Table -->
-<div class="container">
-  <div class="col-md-12">
-    <h2 class="text-center">Your Account Information</h2>
-    <table id="memberTable" class="table">
-      <thead>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email</th>
-        </tr>
-      </thead>
-      <tbody>
-        <!-- Member data will be populated dynamically -->
-      </tbody>
-    </table>
+<!-- Member Table Connected to Form -->
+<!-- REQUIREMENT: A Bootstrap styled table representing your choice of data.-->
+<!-- REQUIREMENT:  A Bootstrap styled form that allows a user to add a new row to the table when clicking on submit.-->
+
+  <div class="container">
+    <div class="col-md-12">
+      <h2 class="text-center">Your Account Information</h2>
+      <table id="memberTable" class="table">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Member data will be populated dynamically -->
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('membership-form');
-  const tableBody = document.querySelector('#memberTable tbody');
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('membership-form');
+    const tableBody = document.querySelector('#memberTable tbody');
 
-  form.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent form submission
+    form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
 
-    const firstName = document.getElementById('first-name').value;
-    const lastName = document.getElementById('last-name').value;
-    const email = document.getElementById('email').value;
+      const firstName = document.getElementById('first-name').value;
+      const lastName = document.getElementById('last-name').value;
+      const email = document.getElementById('email').value;
 
-    // Create new row
-    const newRow = document.createElement('tr');
+      // Create new row
+      const newRow = document.createElement('tr');
 
-    // Insert data into cells
-    newRow.innerHTML = `
-      <td>${firstName}</td>
-      <td>${lastName}</td>
-      <td>${email}</td>
-    `;
+      // Insert data into cells
+      newRow.innerHTML = `
+        <td>${firstName}</td>
+        <td>${lastName}</td>
+        <td>${email}</td>
+      `;
 
-    // Append row to table
-    tableBody.appendChild(newRow);
-  })
-});
-</script>
+      // Append row to table
+      tableBody.appendChild(newRow);
+    })
+  });
+  </script>
 
 
   <br>
@@ -209,18 +216,19 @@ document.addEventListener('DOMContentLoaded', function() {
   <br>
 
 <!--Sources-->
-<div class="container">     
-    <div class="row justify-content-center">
-       <p>Sources: <a href="https://www.nwf.org/Educational-Resources/Wildlife-Guide/Invertebrates/Bees">National Wildlife Foundation, <a href="https://friendsoftheearth.uk/bee-count/insects-that-look-like-bees">Friends of the Earth</a>  
+
+  <div class="container">     
+      <div class="row justify-content-center">
+        <p>Sources: <a href="https://www.nwf.org/Educational-Resources/Wildlife-Guide/Invertebrates/Bees">National Wildlife Foundation, <a href="https://friendsoftheearth.uk/bee-count/insects-that-look-like-bees">Friends of the Earth</a>  
+      </div>
     </div>
-   </div>
 
 
 <!--Footer-->
 
-   <div id="main-container" class="container col-md-12">
-     <p class="text-white bg-secondary text-center p-4">© 2024 Tara Mueller</p>
-   </div>
+  <div id="main-container" class="container col-md-12">
+    <p class="text-white bg-secondary text-center p-4">© 2024 Tara Mueller</p>
+  </div>
 
 
 </body>
